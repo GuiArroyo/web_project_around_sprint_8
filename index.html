@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8" />
+    <!-- Define a viewport para dimensionamento responsivo -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Descrição do site -->
+    <meta name="description" content="fotos" />
+    <!-- Autor do site -->
+    <meta name="author" content="Guilherme D. Arroyo" />
+    <!-- Palavras-chave para SEO -->
+    <meta name="keywords" content="paisagens, redesocial, fotos, explorador, projeto, viagem, montanha, natureza, design, fotografia" />
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- Título da página -->
+    <title>Around The U.S.</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <!-- Logo do cabeçalho -->
+        <img
+          class="header__logo"
+          src="./images/header-logo.svg"
+          alt="Logo"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <div class="profile__content">
+            <!-- Imagem de avatar do perfil -->
+            <img
+              class="profile__avatar"
+              src="./images/avatar-image.jpg"
+              alt="Imagem de Perfil"
+            />
+            <div class="profile__info">
+              <!-- Nome do perfil -->
+              <h1 class="profile__name">Jacques Costeau</h1>
+              <!-- Descrição do perfil -->
+              <h2 class="profile__description">Explorador</h2>
+            </div>
+            <!-- Botão para editar o perfil -->
+            <button
+              class="profile__button profile__button_type_edit"
+              type="button"
+              id="edit-button"
+            >
+              <img
+                class="profile__icon profile__icon_type_edit"
+                src="./images/profile-edit-button.svg"
+                alt="Botão de editar"
+              />
+            </button>
+          </div>
+          <!-- Botão para adicionar novo item -->
+          <button
+            class="profile__button profile__button_type_add"
+            type="button"
+            id="add-button"
+          >
+            <img
+              class="profile__icon profile__icon_type_add"
+              src="./images/profile-add-button.svg"
+              alt="Botão de adicionar"
+            />
+          </button>
+        </section>
+        <section class="elements">
+          <div class="elements__cards">
+            <!-- Template para novos cards -->
+            <template class="elements__template">
+              <div class="elements__card">
+                <!-- Botão da imagem do card -->
+                <button class="elements__image-button">
+                  <img class="elements__image" src=" " alt="Imagem" />
+                </button>
+                <!-- Botão para deletar o card -->
+                <button
+                  class="elements__button elements__button_type_trash"
+                  type="button"
+                >
+                  <img
+                    class="elements__icon elements__icon_type_trash-cap"
+                    src="./images/trashcap.svg"
+                    alt="Lixeira"
+                  />
+                  <img
+                    class="elements__icon elements__icon_type_trash-can"
+                    src="./images/trashcan.svg"
+                    alt="Lixeira"
+                  />
+                </button>
+                <div class="elements__title">
+                  <!-- Título do card -->
+                  <h3 class="elements__text"></h3>
+                  <!-- Botão de like -->
+                  <button
+                    class="elements__button elements__button_type_like"
+                    type="button"
+                  >
+                    <img
+                      class="elements__icon elements__icon_type_like-icon"
+                      src="./images/like.svg"
+                      alt="Botão de like"
+                    />
+                  </button>
+                </div>
+                <!-- Janela de visualização da imagem -->
+                <div class="elements__window">
+                  <div class="elements__container">
+                    <!-- Botão para fechar a janela -->
+                    <button
+                      class="elements__button elements__button_type_close"
+                      type="button"
+                      id="window-close-button"
+                    >
+                      <img
+                        class="elements__icon elements__icon_type_close"
+                        src="./images/popup-close-icon.svg"
+                        alt="Closed"
+                      />
+                    </button>
+                    <img class="elements__window-image" src=" " alt="Imagem" />
+                    <h3 class="elements__window-name"></h3>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </section>
+      </main>
+      <footer class="footer">
+        <!-- Copyright do site -->
+        <p class="footer__copyright">&copy 2024 Guilherme D. Arroyo</p>
+      </footer>
+      <!-- Popup de edição de perfil -->
+      <div class="popup" id="profile">
+        <div class="popup__container">
+          <!-- Botão para fechar o popup -->
+          <button class="popup__button popup__button_type_close" type="button">
+            <img
+              class="popup__icon"
+              src="./images/popup-close-icon.svg"
+              alt="Fechar"
+            />
+          </button>
+          <!-- Título do popup -->
+          <h2 class="popup__title">Editar Perfil</h2>
+          <!-- Formulário de edição de perfil -->
+          <form class="popup__form">
+            <fieldset class="popup__name">
+              <input
+                class="popup__item popup__item_type_name"
+                type="text"
+                name="name"
+                placeholder="Nome"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <input
+                class="popup__item popup__item_type_about"
+                type="text"
+                name="name"
+                placeholder="Sobre mim"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <button class="popup__button popup__button_type_send" type="submit">Guardar</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+      <!-- Popup de adição de novo lugar -->
+      <div class="popup" id="add-popup">
+        <div class="popup__container">
+          <!-- Botão para fechar o popup -->
+          <button
+            class="popup__button popup__button_type_close"
+            type="button"
+            id="close-add-popup"
+          >
+            <img
+              class="popup__icon"
+              src="./images/popup-close-icon.svg"
+              alt="Fechar"
+            />
+          </button>
+          <!-- Título do popup -->
+          <h2 class="popup__title">Novo Lugar</h2>
+          <!-- Formulário de adição de novo lugar -->
+          <form class="popup__form" id="add-form">
+            <fieldset class="popup__name">
+              <input
+                class="popup__item popup__item_type_name"
+                id="place-input"
+                type="text"
+                name="name"
+                placeholder="Título"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <input
+                class="popup__item popup__item_type_about"
+                id="link-input"
+                type="text"
+                name="name"
+                placeholder="Link da imagem"
+                minlength="2"
+                required
+              />
+              <button class="popup__button popup__button_type_send" id="add-card-button" type="submit">Guardar</button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
+  </body>
+</html>
